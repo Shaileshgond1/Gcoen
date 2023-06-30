@@ -1,0 +1,78 @@
+import java.util.Scanner;  
+public class TechNumberExample2  
+{  
+public static void main(String args[])  
+{  
+int n, num, firstHalf, secondHalf, digits = 0, squareOfSum = 0;  
+Scanner sc = new Scanner(System.in);  
+System.out.print("Enter a number to check: ");  
+//reads an integer from the user  
+n = sc.nextInt();  
+//assign the value of n into num  
+num = n;  
+//the loop executes until the condition returns false  
+while (num > 0)  
+{  
+//incerements the variable digits by 1      
+digits++;  
+//removes the last digit of the given number  
+num = num / 10;  
+}  
+//check if the given number has an even number of digits or not  
+if (digits % 2 == 0)  
+{  
+num = n;  
+//determines the first half of the given number  
+firstHalf = num % (int) Math.pow(10, digits / 2);  
+//determines the second half of the given number  
+secondHalf = num / (int) Math.pow(10, digits / 2);  
+//calculate the square of both the numbers  
+squareOfSum = (firstHalf + secondHalf) * (firstHalf + secondHalf);  
+//compares the square of the sum with the given number  
+if (n == squareOfSum)  
+{  
+System.out.println(n+" is a tech number.");  
+}  
+else  
+{  
+System.out.println(n+" is not a tech number.");  
+}  
+}  
+else  
+{  
+System.out.println(n+ " is not a tech number.");  
+}  
+}  
+}  
+Output 1:
+
+Enter a number to check: 2025
+2025 is a tech Number.
+Output 2:
+
+Enter a number to check: 9181
+9181 is not a tech number.
+Let's find all the tech numbers between a specified range.
+
+TechNumberExample2.java
+
+public class TechNumberExample2  
+{  
+public static void main(String args[])   
+{  
+System.out.println("Tech numbers between 1 to 1000000 are: ");      
+for (int i = 1; i <= 1000000; i++)   
+{  
+//determines the last digit of the given number  
+int p1 = i % 100;  
+//removes the last digit of the number  
+int p2 = i / 100;  
+//add the two parts i.e. p1 and p2  
+int sum = p1 + p2;  
+//square the sum that we get from the above statement and compare the square with the given number  
+if (i == (sum * sum))  
+//prints the tech number  
+System.out.println(i);  
+}  
+}  
+}  
